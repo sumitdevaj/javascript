@@ -24,7 +24,7 @@ function bubbleSort(arr) {
     return arr
 }
 // console.log(bubbleSort([8, 7, 6, 5, 4, 3, 2, 1]))
-let arr = [8, 7, 6, 5, 14, 3, 2, 1,8,1,7]
+
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++) {
         let min_idx = i;
@@ -43,19 +43,29 @@ function selectionSort(arr) {
     return arr;
 }
 // console.log(selectionSort(arr));
+// let arr = [8, 7, 6, 1,8,1,7]
 function findDuplicates(arr) {
     let set = new Set();
-    let duplicate = [];
+    let duplicate = new Set();
     for (let i of arr) {
         if (set.has(i)) {
-            duplicate.push(i);
+            duplicate.add(i);
         }
         else {
             set.add(i);
         }
     }
     return duplicate;
+// }
+// console.log(findDuplicates(arr));
+// find k largest number 
+
 }
-console.log(findDuplicates(arr));
+let arr = [5,4,3,2,1]
+function findKlargest(arr,k) {
+    arr.sort((a,b)=>a-b)
+    return arr[(arr.length)-k]
+}
+console.log(findKlargest(arr,3))
 
 
