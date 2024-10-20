@@ -29,8 +29,18 @@ let forEachArr = arr2.forEach((val,index)=>{
 // console.log(sumOfArr);
 
 // sorting 
-let sortingArr = [45,23,32,12,76,3,54]
+// let sortingArr = [45,23,32,12,76,3,54]
+// console.log(sortingArr.sort((a,b)=>a-b))
 
+
+// filter 
+
+let filterArr = [45,23,32,12,76,3,54];
+let evenVal= filterArr.filter((val)=>val%2 !==0)
+// console.log(evenVal);
+let dd= [94,4,2,34,40,22,23,12,4] 
+let res = dd.filter((val)=> val >30).map((val)=>val*2).reduce((acc,val)=>acc+=val)
+console.log(res);
 
 
 
