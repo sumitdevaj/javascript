@@ -44,11 +44,34 @@ let forEachArr = arr2.forEach((val, index) => {
 
 
 // find method 
-let findArr = [12,34,32,53,43,2];
-console.log(findArr.findIndex((val)=>val === 43));
+let findArr = [12,34,32,53,43,2,120];
+// console.log(findArr.findIndex((val)=>val === 43));
 
-let aa= findArr.concat([22,222,33,333])
-console.log(aa);
+// let aa= findArr.concat([22,222,33,333])
+// // console.log(aa);
+
+// let ddd= findArr.join("+")
+// console.log(ddd);
+
+// every
+
+console.log(findArr.every((val)=>val>100))
+ 
+// 27/10
+
+// find intersaction 
+let arr12=[1,2,3,4,5];
+let arr13=[2,3,4];
+let intersaction = arr12.filter((value)=> arr13.includes(value));
+console.log(intersaction);
+
+// how to merge two arrays without duplicates 
+let arr14 = [1,2,3];
+let arr15 = [3,4,5];
+// [1,2,3,5,4]
+let newUniqueEleArr = [ ...new Set([...arr14, ...arr15])];
+console.log(newUniqueEleArr[2]);
+
 
 
 
