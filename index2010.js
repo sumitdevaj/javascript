@@ -55,7 +55,7 @@ let findArr = [12,34,32,53,43,2,120];
 
 // every
 
-console.log(findArr.every((val)=>val>100))
+// console.log(findArr.every((val)=>val>100))
  
 // 27/10
 
@@ -63,15 +63,64 @@ console.log(findArr.every((val)=>val>100))
 let arr12=[1,2,3,4,5];
 let arr13=[2,3,4];
 let intersaction = arr12.filter((value)=> arr13.includes(value));
-console.log(intersaction);
+// console.log(intersaction);
 
 // how to merge two arrays without duplicates 
 let arr14 = [1,2,3];
 let arr15 = [3,4,5];
 // [1,2,3,5,4]
 let newUniqueEleArr = [ ...new Set([...arr14, ...arr15])];
-console.log(newUniqueEleArr[2]);
+// console.log(newUniqueEleArr[2]);
 
 
+
+
+function subArrar(arr,size){
+    let chunks = [];
+    for(let i=0;i<arr.length;i+= size){
+        chunks.push(arr.slice(i,i+size));
+
+    }
+    return chunks;
+}
+
+// let res = [[1,2,3],[1,[2,3]],[4,3,2]]
+// console.log(res.flat(2));
+
+let unSort=[1,2,5,7,3,4,10,8];
+let sumedVal= unSort.sort((a,b)=>b-a).filter((value)=>value>4).map((val)=>val*3);
+// console.log(sumedVal);
+
+// bubble sort 
+let bubbleArr = [33,2,23,43,11]
+function bubbleSort(arr){
+    for(let i =0; i<arr.length; i++){
+        for(let j=0;j<arr.length; j++){
+            if(arr[j]>arr[j+1]){
+                [arr[j], arr[j+1]]=[arr[j+1], arr[j]]
+            }
+        }
+    }
+    return arr;
+}
+
+// console.log(bubbleSort(bubbleArr));
+
+function selectionSort(arr){
+    let n = arr.length;
+    for(let i=0;i<n;i++){
+        let minIdx=i
+        for(let j=i+1;j<n;j++){
+            if(arr[j]<arr[minIdx]){
+                minIdx=j;
+            }
+        }
+        if(minIdx !== i){
+            [arr[i],arr[minIdx]]=[arr[minIdx], arr[i]]
+        }
+    }
+    return arr;
+}
+console.log(selectionSort(bubbleArr));
 
 
