@@ -45,7 +45,29 @@ function pallidrome(str) {
     
     
 }
-console.log(pallidrome("Elle"));
+// console.log(pallidrome("Elle"));
+
+// most frequent Char 
+
+function mostFreq(str){
+    let freq= {};
+    let maxChar = "";
+    let maxCount = 0;
+    for(let char of str){
+        freq[char] = (freq[char] || 0) + 1;
+        if(freq[char] >maxCount){
+            maxCount = freq[char];
+            maxChar = char
+        }
+    }
+    console.log(freq);
+    
+    return maxChar
+}
+console.log(mostFreq("helllooo"));
+
+
+
 
 
 
