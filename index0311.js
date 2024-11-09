@@ -75,6 +75,11 @@ function cap(str) {
 console.log(cap("hello world sdf"));
 
 
+// callback 
+
+
+
+
 
 
 
