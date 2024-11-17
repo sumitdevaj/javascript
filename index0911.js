@@ -74,13 +74,84 @@ function fact(n) {
     let factS = 1;
     for (let i = n; i >= -n; i--) {
         if (i == 0) {
+
             continue;
         }
             factS *= i
     }
     return factS;
 }
-console.log(fact(5));
+// console.log(fact(5));
+let e= "fkd"
+let f='www'
+console.log(`string ${e} ,${f}`);
+
+// let sym =  Symbol("1pdcmv");
+// console.log(sym);
+// fact
+// let sum =1
+// let a = 4;
+// while(a>0){
+//     sum*=a;
+//     a--
+// }
+// console.log(sum);
+
+
+// break and continue with
+ let i =9;
+do{
+    console.log(i);
+    i--
+    
+}
+while(i>10)
+
+// for loop 
+
+// for(let i=0;i<10;i++){
+    
+//     if(i==5){
+//         console.log(i,"deleted");
+        
+//        continue;
+//     }
+//     console.log(i);
+    
+// }
+// array 
+
+// let arr = []
+// arr.push(10);
+// arr.push(20);
+// arr.pop();
+// arr.unshift(100)
+// arr.unshift(20);
+// arr.shift()
+// console.log(arr);
+// let arr = [10,20,30,40,50,60,70,80,90];
+// let [...a] = arr;
+// console.log(a);
+
+// callback function 
+function dev(cb){
+    
+    console.log("hello world");
+    cb();
+    console.log("this is a higher order fuction");
+ 
+    
+    
+}
+function greet(){
+    console.log("my code is ended");
+    
+}
+dev(greet);
+
+
+
+
 
 
 
