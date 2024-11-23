@@ -31,4 +31,29 @@ let check= sArr.find((val)=>val>40);
 console.log(check);
 
 
+// every method 
+let sArr1=[9,2,1,13,24,3,6,32];
+let res1= sArr1.every((val)=>val >0)
+console.log(res1);
+
+//some method
+let sArr2=[9,2,1,13,-24,3,6,32];
+let res2= sArr1.some((val)=>val < 0)
+console.log(res2);
+
+// fill method 
+// let sArr3=[9,2,1,13,-24,3,6,32];
+// let res3= sArr1.some((val)=>val < 0)
+// console.log(res3);
+// let newArr1= [5,1,1,1,1,5].fill(-2,1,5)
+// console.log(newArr1)
+
+// splice 
+let sArr3=[9,2,1,13,-24,3,6,32];
+sArr3.splice(2,3,-10,-20)
+console.log(sArr3);
+
+
+
+
 
