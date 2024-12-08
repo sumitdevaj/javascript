@@ -15,11 +15,17 @@
     <script>
         const counterValue = document.getElementById("counter-value");
         const decrementBtn = document.getElementById("decre");
-        const incrementBtn = document.getElementById("incremen");
-        const resetBtn = document.getElementById("reset");
+        const incrementBtn = document.getElementById("incre");
+        const resetBtn = document.querySelector("#reset");
         let count =0;
         decrementBtn.addEventListener("click", ()=>{
-            count--;
+            
+            if(count==0){
+                alert("cannot count -ve ")
+            }
+            else{
+                count--;
+            }
             updateCount();
         })
         incrementBtn.addEventListener("click", ()=>{
