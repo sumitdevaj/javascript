@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="heading1">1</h1>
+    <h1 id="heading2">2</h1>
+    <h1 id="heading3">3</h1>
+    <h1 id="heading4">4</h1>
+    <h1 id="heading5">5</h1>
+    <h1 id="heading6">6</h1>
+    <h1 id="heading7">7</h1>
+    <h1 id="heading8">8</h1>
+    <script>
+        let heading1 = document.getElementById("heading1");
+        let heading2 = document.getElementById("heading2");
+        let heading3 = document.getElementById("heading3");
+        let heading4 = document.getElementById("heading4");
+        let heading5 = document.getElementById("heading5");
+        setTimeout(() => {
+            heading1.style.color = "red";
+            setTimeout(() => {
+                heading2.style.color = "green";
+                setTimeout(() => {
+                    heading3.style.color = "blue"
+                    setTimeout(() => {
+                        heading4.style.color = "aqua"
+                        setTimeout(() => {
+                            heading5.style.color = "orange"
+                        }, 1000)
+                    }, 1000)
+                }, 1000);
+            }, 1000)
+        }, 1000)
+    </script>
+</body>
+
+</html>
