@@ -22,21 +22,58 @@
         let heading3 = document.getElementById("heading3");
         let heading4 = document.getElementById("heading4");
         let heading5 = document.getElementById("heading5");
-        setTimeout(() => {
-            heading1.style.color = "red";
-            setTimeout(() => {
-                heading2.style.color = "green";
+        // setTimeout(() => {
+        //     heading1.style.color = "red";
+        //     setTimeout(() => {
+        //         heading2.style.color = "green";
+        //         setTimeout(() => {
+        //             heading3.style.color = "blue"
+        //             setTimeout(() => {
+        //                 heading4.style.color = "aqua"
+        //                 setTimeout(() => {
+        //                     heading5.style.color = "orange"
+        //                 }, 1000)
+        //             }, 1000)
+        //         }, 1000);
+        //     }, 1000)
+        // }, 1000)
+        function changeColour(element, text, color, time) {
+            return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    heading3.style.color = "blue"
-                    setTimeout(() => {
-                        heading4.style.color = "aqua"
-                        setTimeout(() => {
-                            heading5.style.color = "orange"
-                        }, 1000)
-                    }, 1000)
-                }, 1000);
-            }, 1000)
-        }, 1000)
+                    if (element) {
+                        element.textContent = text;
+                        element.style.color = color;
+                        resolve()
+                    }
+                    else {
+                        reject()
+                    }
+                }, time);
+            })
+        }
+        changeColour(heading1, 'one', 'blue', 1000).
+            then(() => changeColour(heading2, 'two', 'red', 1000).
+                then(() => changeColour(heading3, 'three', 'green', 1000)).
+                then(() => changeColour(heading3, 'three', 'green', 1000)).
+                then(() => changeColour(heading3, 'three', 'green', 1000))
+
+
+            ).catch((err) => {
+                console.log(err);
+
+            })
+            (async function () {
+                await changeColour(heading1, 'one', 'blue', 1000)
+                await changeColour(heading2, 'one', 'blue', 1000)
+                await changeColour(heading3, 'one', 'blue', 1000)
+                await changeColour(heading4, 'one', 'blue', 1000)
+                await changeColour(heading5, 'one', 'blue', 1000)
+            })()
+        console.log("kdndkdkdk");
+        console.log("dkdjsdkssks");
+
+
+
     </script>
 </body>
 
