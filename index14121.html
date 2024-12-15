@@ -51,23 +51,33 @@
                 }, time);
             })
         }
-        changeColour(heading1, 'one', 'blue', 1000).
-            then(() => changeColour(heading2, 'two', 'red', 1000).
-                then(() => changeColour(heading3, 'three', 'green', 1000)).
-                then(() => changeColour(heading3, 'three', 'green', 1000)).
-                then(() => changeColour(heading3, 'three', 'green', 1000))
+        // changeColour(heading1, 'one', 'blue', 1000).
+        //     then(() => changeColour(heading2, 'two', 'red', 1000).
+        //         then(() => changeColour(heading3, 'three', 'green', 1000)).
+        //         then(() => changeColour(heading3, 'three', 'green', 1000)).
+        //         then(() => changeColour(heading3, 'three', 'green', 1000))
 
 
-            ).catch((err) => {
-                console.log(err);
+        //     ).catch((err) => {
+        //         console.log(err);
 
-            })
+        //     })
             (async function () {
+                try{
                 await changeColour(heading1, 'one', 'blue', 1000)
                 await changeColour(heading2, 'one', 'blue', 1000)
-                await changeColour(heading3, 'one', 'blue', 1000)
+                await changeColour(heading23, 'one', 'blue', 1000)
                 await changeColour(heading4, 'one', 'blue', 1000)
                 await changeColour(heading5, 'one', 'blue', 1000)
+                }
+                catch(err){
+                    console.log(err);
+                    
+                }
+                finally{
+                    console.log("me call hounga hi hounga");
+                    
+                }
             })()
         console.log("kdndkdkdk");
         console.log("dkdjsdkssks");
