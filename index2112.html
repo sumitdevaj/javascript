@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="form1">
+        <input type="text" id ="amount"   placeholder="enter amount">
+        <select name="currency" id="currency">
+            <option value="USD">USD - United States Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - British Pound</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+            <option value="AUD">AUD - Australian Dollar</option>
+            <option value="CAD">CAD - Canadian Dollar</option>
+            <option value="CHF">CHF - Swiss Franc</option>
+            <option value="CNY">CNY - Chinese Yuan</option>
+            <option value="INR">INR - Indian Rupee</option>
+            <option value="MXN">MXN - Mexican Peso</option>
+          </select>
+          <input type="submit" >
+          
+    </form>
+    <h1>CONVERTED AMOUNT</h1>
+    <h4 id="rate"></h4>
+    <script>
+        let amount = document.getElementById('amount');
+        let form = document.getElementById('form1');
+        let symbal = document.getElementById('currency');
+        let rate = document.getElementById('rate');
+
+        form.addEventListener('submit',async function(e){
+            try{
+            e.preventDefault();
+            console.log(symbal.value);
+            console.log(amount.value);
+            let data =await fetch(`https://v6.exchangerate-api.com/v6/d2a3e4cb9e85b1dff1f62c95/latest/INR`)
+            let data1 = await data.json();
+            for(let i in  data1.conversion_rates){
+                if(i===symbal.value){
+                    rate.innerText = data1.conversion_rates[i] * amount.value
+                }
+                
+            }
+            
+            }
+            catch(err){
+                console.log(err);
+                
+            }
+            
+        })
+        
+        
+    </script>
+</body>
+</html>
