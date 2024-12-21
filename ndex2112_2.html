@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>currency converter </h1>
+    <form action="">
+        <input type="text" id ="amount" placeholder="amount">
+        <label>From :</label>
+        <select  id="from-currency"></select><br>
+        <label>To</label>
+        <select id="to-currency"></select>
+        <input type="submit" id ='convert-btn'>
+    </form>
+    <h2 id="result">Converted AMOUNT</h2>
+    <script>
+        async function currency(){
+            try{
+                const response = await fetch('https://v6.exchangerate-api.com/v6/d2a3e4cb9e85b1dff1f62c95/latest/USD')
+                let data = await response.json();
+                const currencyOptions = Object.keys(data.conversion_rates);
+                let fromCurr = document.getElementById('from-currency');
+                let toCurr = document.getElementById('to-currency');
+                currencyOptions.forEach(cur=>{
+                    const option1 = document.createElement('option');
+                    option1.value = cur;
+                    option1.textContent = cur;
+                    fromCurr.appendChild(option1);
+
+                    const option2 = document.createElement('option');
+                    option2.value = cur;
+                    option2.textContent = cur;
+                    toCurr.appendChild(option2);
+                })
+
+                fromCurr.value = 'USD';
+                toCurr.value = 'EUR';
+
+            }
+            catch(err){
+                console.log(err);
+                
+            }
+        }
+        currency()
+        document.getElementById('convert-btn').addEventListener('click',async function(e){
+            e.preventDefault()
+            const amount = document.getElementById('amount').value;
+            const fcurrency = document.getElementById('from-currency').value;
+            const tcurrency = document.getElementById('to-currency').value;
+            if(!amount){
+                alert('Please enter a valid amount')
+                return
+            }
+            try{
+                const res = await fetch('https://v6.exchangerate-api.com/v6/d2a3e4cb9e85b1dff1f62c95/latest/USD');
+                const data = await res.json();
+                const fromRate = data.conversion_rates[fcurrency];
+                const toRate = data.conversion_rates[tcurrency];
+                const convertedAmount = ((amount/ fromRate) * toRate).toFixed(2)
+                document.getElementById("result").innerHTML =` convertedAmount ${convertedAmount} to ${tcurrency}`
+            }
+            catch (err) {
+                console.log(err);
+                
+            }
+        })
+    </script>
+</body>
+</html>
